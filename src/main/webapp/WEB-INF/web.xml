@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+    <context-param>
+        <param-name>logging.level.org.springframework.data.jpa</param-name>
+        <param-value>DEBUG</param-value>
+    </context-param>
+    <context-param>
+        <param-name>logging.level.org.hibernate</param-name>
+        <param-value>DEBUG</param-value>
+    </context-param>
+
+    <!-- Configure DispatcherServlet -->
+    <servlet>
+        <servlet-name>myDispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/applicationContext.xml</param-value>
+        </init-param>
+
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>myDispatcher</servlet-name>
+        <url-pattern>/home.com/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Load properties file -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+
+    <!-- Configure data source -->
+
+</web-app>
